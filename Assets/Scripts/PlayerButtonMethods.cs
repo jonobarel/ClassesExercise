@@ -5,61 +5,74 @@ namespace ZeroPrep.ClassesDemo
 {
     public class PlayerButtonMethods : MonoBehaviour
     {
-        private PlayerController _playerController;
-        public EnemyController flyingEnemy;
-        public EnemyController groundedEnemy;
-        
+        private Player _player;
+        public Enemy flyingEnemy;
+        public Enemy groundedEnemy;
+
+        public void Awake()
+        {
+            if (flyingEnemy == null || groundedEnemy == null)
+            {
+                throw new ArgumentNullException($"{name}: Enemies not set up in UI");
+            }
+            _player = GetComponent<Player>();
+            if (_player != null)
+            {
+                EquipSword();
+            }
+
+            else
+            {
+                throw new ArgumentNullException($"{name}: Could not find Player object in scene");
+            } 
+                
+        }
 
         public void Start()
         {
-            _playerController = GetComponent<PlayerController>();
-            EquipSword();
+            
         }
         
         public void EquipSword()
         {
-            _playerController.EquipWeapon(new Sword());
         }
 
         public void EquipBow()
         {
-            _playerController.EquipWeapon(new Bow());
         }
         
-        public void MoveN()
+        public void MoveUp()
         {
-            _playerController.Move(Vector2Int.up);
+            _player.Move(Vector2Int.up);
         }
-        public void MoveS()
+        public void MoveDown()
         {
-            _playerController.Move(Vector2Int.down);
-        }
-
-        public void MoveE()
-        {
-            _playerController.Move(Vector2Int.right);
+            _player.Move(Vector2Int.down);
         }
 
-        public void MoveW()
+        public void MoveRight()
         {
-            _playerController.Move(Vector2Int.left);
+            _player.Move(Vector2Int.right);
+        }
+
+        public void MoveLeft()
+        {
+            _player.Move(Vector2Int.left);
         }
 
         public void AttackFlyingEnemy()
         {
-            _playerController.PlayerEntity().Attack(flyingEnemy.entity);
         }
 
         public void AttackGroundedEnemy()
         {
-            _playerController.PlayerEntity().Attack(groundedEnemy.entity);
         }
 
         public void EnemyActions()
         {
-            EnemyController[] enemies = FindObjectsOfType<EnemyController>();
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
 
-            foreach (var e in enemies)
+            foreach (Enemy e in enemies)
             {
                 e.DoEnemyActions();
             }

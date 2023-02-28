@@ -3,7 +3,24 @@
     public struct AttackInfo
     {
         public int Damage;
-        public Weapon.Type AttackType;
-        public Weapon.DamageType DamageType;
+        public AttackType TypeOfAttack;
+        public DamageType TypeOfDamage;
     }
+
+    public enum AttackResult
+    {
+        AttackHit,
+        AttackResisted,
+        AttackMissed,
+        AttackOutOfRange
+    }
+    
+    public enum DamageType
+    {
+        Normal,
+        Fire,
+        Magic
+    }
+    
+    public enum AttackType {Ranged, Melee, Magical}
 }

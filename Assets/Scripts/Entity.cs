@@ -1,50 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using ZeroPrep.ClassesDemo;
 
-namespace ZeroPrep.ClassesDemo
+public abstract class Entity : MonoBehaviour //, IDamageable
 {
-    public abstract class Entity : IDamageable
+    public int HP;
+    public Grid grid;
+    private TextMeshPro tmp;
+
+    public Vector2Int GridPosition;
+    public void Awake()
     {
-        public enum AttackResult
-        {
-            TargetHit,
-            TargetOutOfRange,
-            TargetDestroyed,
-            TargetDodged
-            
-        }
-       
-        public float Hp = 3;
-        public bool isAlive = true;
-        public Vector2Int position;
-
-        public abstract AttackInfo GetAttackInfo();
-        
-        public abstract AttackResult Attack(Entity target);
-
-        public float SqrDistanceToTarget(Entity target)
-        {
-            return (position - target.position).sqrMagnitude;
-        }
-        
-        // NOTE TO SELF - start with "simple" damage (int only) before building the struct
-        public virtual AttackResult TakeDamage( AttackInfo attackInfo)
-        {
-            Hp -= attackInfo.Damage;
-            if (Hp < 0)
-            {
-                Die();
-                return AttackResult.TargetDestroyed;
-            }
-
-            return AttackResult.TargetHit;
-        }
-
-        public virtual void Die()
-        {
-            isAlive = false;
-        }
-
+        tmp = GetComponentInChildren<TextMeshPro>();
+        grid = FindObjectOfType<Grid>();
+        SnapPositionToGrid();
     }
+    
+    public abstract int Attack(Entity target);
+    
+    public virtual void Move(Vector2Int targetPosition)
+    {
+        GridPosition += targetPosition;
+        transform.position = grid.CellToWorld((Vector3Int)GridPosition);
+    }
+
+    public void SnapPositionToGrid()
+    {
+        Vector2Int snappedGridPosition = (Vector2Int)grid.WorldToCell(transform.position);
+        Move(snappedGridPosition);
+    }
+    
 }

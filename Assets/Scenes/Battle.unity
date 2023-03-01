@@ -1598,9 +1598,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1772683691}
-        m_TargetAssemblyTypeName: ZeroPrep.ClassesDemo.PlayerButtonMethods, Assembly-CSharp
-        m_MethodName: EnemyActions
+      - m_Target: {fileID: 3082150273153331353}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: DoEnemyActions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4853021415975458047}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: DoEnemyActions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2132,7 +2144,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4942578323572202812, guid: 016efbb87d74a98499b3a4a01174867b, type: 3}
   m_PrefabInstance: {fileID: 4942578322089974935}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4942578322089974936}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91b41cb3af1f41aa9ee958b1564b39d9, type: 3}
@@ -3321,6 +3333,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d19a846fd3a444888f2e37d7cb132a, type: 3}
+--- !u!1 &3082150273153331352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3082150272427513645, guid: c2d19a846fd3a444888f2e37d7cb132a, type: 3}
+  m_PrefabInstance: {fileID: 3082150273153331351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3082150273153331353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3082150273153331352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b129bc4819d143958bf22c598a38c132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 3
+  grid: {fileID: 0}
+  GridPosition: {x: 0, y: 0}
 --- !u!1001 &4853021415975458045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3382,6 +3414,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90333c08fa826084f96243fd8acbde2b, type: 3}
+--- !u!1 &4853021415975458046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4853021416050478230, guid: 90333c08fa826084f96243fd8acbde2b, type: 3}
+  m_PrefabInstance: {fileID: 4853021415975458045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4853021415975458047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853021415975458046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b129bc4819d143958bf22c598a38c132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 3
+  grid: {fileID: 0}
+  GridPosition: {x: 0, y: 0}
 --- !u!1001 &4942578322089974935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3447,3 +3499,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 016efbb87d74a98499b3a4a01174867b, type: 3}
+--- !u!1 &4942578322089974936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4942578323572202800, guid: 016efbb87d74a98499b3a4a01174867b, type: 3}
+  m_PrefabInstance: {fileID: 4942578322089974935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4942578322089974937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942578322089974936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29e7ec356e3429798326693918982dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 10
+  grid: {fileID: 0}
+  GridPosition: {x: 0, y: 0}
+  equippedWeapon: 0

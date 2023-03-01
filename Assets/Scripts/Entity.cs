@@ -12,6 +12,7 @@ public abstract class Entity : MonoBehaviour //, IDamageable
     public void Awake()
     {
         tmp = GetComponentInChildren<TextMeshPro>();
+        tmp.text = $"HP: {HP}";
         grid = FindObjectOfType<Grid>();
         SnapPositionToGrid();
     }
@@ -35,6 +36,11 @@ public abstract class Entity : MonoBehaviour //, IDamageable
         HP -= damage;
         HP = Mathf.Min(0, HP);
         tmp.text = $"HP: {HP}";
+    }
+
+    public float DistanceTo(Entity target)
+    {
+        return (target.GridPosition - GridPosition).magnitude;
     }
     
 }
